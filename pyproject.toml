@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sphinxcontrib-budoux"
-version = "0.1.1"
+version = "0.1.2"
 description = "This is Sphinx extension to break line of heading texts by BudouX."
 authors = ["Kazuya Takei <myself@attakei.net>"]
 license = "Apache-2.0"

@@ -4,7 +4,7 @@
 project = "sphinxcontrib-budoux"
 copyright = "2022, Kazuya Takei"
 author = "Kazuya Takei"
-release = "0.1.1"
+release = "0.1.2"
 language = "ja"
 
 # -- General configuration
