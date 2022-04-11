@@ -24,8 +24,13 @@ Usage
    extensions = [
        "sphinxcontrib.budoux",
    ]
-
-   budoux_max_heading_level = 2
+   
+   # Tag to ijnect for splitted texts
+   budoux_split_tag = "wbr"
+   # Style for splitted-tag
+   budoux_split_style = "budoux_split_style", "word-break: keep-all; overflow-wrap: break-word;"
+   # Target tags for apply BudouX
+   budoux_targets = ["h1", "h2"]
 
 Example
 =======
