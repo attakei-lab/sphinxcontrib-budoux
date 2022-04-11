@@ -21,12 +21,7 @@ jobs:
           poetry run make -C doc html
           touch doc/_build/html/.nojekyll
       - name: Deploy to GitHub Pages
-        run: |
-          cd doc/_build/html
-          git init -b gh-pages
-          git config user.name $GITHUB_ACTOR
-          git config user.email $GITHUB_ACTOR@users.noreply.github.com
-          git remote add origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
-          git add .
-          git commit -m "doc: Build for GitHub Pages"
-          git push --force origin gh-pages
+        uses: ftnext/action-push-ghpages@v1.0.0
+        with:
+          build_dir: doc/_build/html
+          github_token: ${{ secrets.GITHUB_TOKEN }}
