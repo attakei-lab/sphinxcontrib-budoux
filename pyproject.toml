@@ -12,6 +12,7 @@ packages = [
 python = "^3.10"
 Sphinx = "*"
 BudouX = "*"
+beautifulsoup4 = "*"
 
 [tool.poetry.dev-dependencies]
 sphinx-rtd-theme = "^1.0.0"
