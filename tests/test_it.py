@@ -13,7 +13,7 @@ def test_default(app: SphinxTestApp, status: StringIO, warning: StringIO):
     soup = BeautifulSoup(out_html.read_text(), "html.parser")
     h1 = soup.h1
     contents = list(h1.children)
-    assert len(list(h1.children)) > 1
+    assert len(contents) > 1
     assert "word-break: keep-all; overflow-wrap: break-word;" in h1["style"]
     assert isinstance(contents[0], NavigableString)
     assert isinstance(contents[1], Tag)
