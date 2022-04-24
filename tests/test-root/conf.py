@@ -1,0 +1,3 @@
+extensions = [
+    "sphinxcontrib.budoux",
+]
