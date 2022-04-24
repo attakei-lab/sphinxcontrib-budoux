@@ -31,9 +31,9 @@ def setup(app: Sphinx):
     Setup function for this extension.
     """
     logger.debug(f"Using {__name__}")
-    app.add_config_value("budoux_split_tag", "wbr", True)
+    app.add_config_value("budoux_split_tag", "wbr", "env")
     app.add_config_value(
-        "budoux_split_style", "word-break: keep-all; overflow-wrap: break-word;", True
+        "budoux_split_style", "word-break: keep-all; overflow-wrap: break-word;", "env"
     )
-    app.add_config_value("budoux_targets", ["h1"], True)
+    app.add_config_value("budoux_targets", ["h1"], "env")
     app.connect("html-page-context", apply_budoux)
