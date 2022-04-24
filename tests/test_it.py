@@ -28,3 +28,28 @@ def test_multiple_targets(app: SphinxTestApp, status: StringIO, warning: StringI
     soup = BeautifulSoup(out_html.read_text(), "html.parser")
     assert len(list(soup.h1.children)) > 1
     assert len(list(soup.h2.children)) > 1
+
+
+@pytest.mark.sphinx("html", confoverrides={"budoux_split_tag": "br"})
+def test_other_tag_splitting(app: SphinxTestApp, status: StringIO, warning: StringIO):
+    app.build()
+    out_html = app.outdir / "index.html"
+    soup = BeautifulSoup(out_html.read_text(), "html.parser")
+    contents = list(soup.h1.children)
+    assert contents[1].name == "br"
+
+
+@pytest.mark.sphinx("html", confoverrides={"budoux_split_style": "display: none;"})
+def test_other_styling(app: SphinxTestApp, status: StringIO, warning: StringIO):
+    app.build()
+    out_html = app.outdir / "index.html"
+    soup = BeautifulSoup(out_html.read_text(), "html.parser")
+    assert "display: none;" in soup.h1["style"]
+
+
+@pytest.mark.sphinx("html", confoverrides={"budoux_split_style": None})
+def test_none_direct_styling(app: SphinxTestApp, status: StringIO, warning: StringIO):
+    app.build()
+    out_html = app.outdir / "index.html"
+    soup = BeautifulSoup(out_html.read_text(), "html.parser")
+    assert "style" not in soup.h1
