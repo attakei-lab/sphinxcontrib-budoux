@@ -2,8 +2,28 @@
 name = "sphinxcontrib-budoux"
 version = "0.1.2"
 description = "This is Sphinx extension to break line of heading texts by BudouX."
-authors = ["Kazuya Takei <myself@attakei.net>"]
 license = "Apache-2.0"
+authors = ["Kazuya Takei <myself@attakei.net>"]
+readme = "README.rst"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Sphinx",
+    "Framework :: Sphinx :: Extension",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Documentation :: Sphinx",
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Documentation",
+    "Topic :: Text Processing :: Markup :: HTML",
+]
 packages = [
     { include = "sphinxcontrib" },
 ]
