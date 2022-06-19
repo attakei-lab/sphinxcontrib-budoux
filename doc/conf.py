@@ -19,3 +19,5 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # -- Options for HTML output
 html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
+
+budoux_targets = ["h1", "h2", "p"]
