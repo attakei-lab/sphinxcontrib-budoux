@@ -1,3 +1,5 @@
+from functools import lru_cache
+
 import budoux
 from bs4 import BeautifulSoup
 from bs4.element import NavigableString, Tag
@@ -9,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 def rebuild_contents(elm: Tag, config: Config):
-    parser = budoux.load_default_japanese_parser()
+    parser = lru_cache(budoux.load_default_japanese_parser)()
     tag = Tag(name=config.budoux_split_tag, can_be_empty_element=True)
     contents = []
     for content in elm.contents:
