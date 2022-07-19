@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sphinxcontrib-budoux &mdash; sphinxcontrib-budoux 0.1.5 ドキュメント</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="検索" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> sphinxcontrib-budoux
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">sphinxcontrib-budoux</a><ul>
+<li><a class="reference internal" href="#id1">概要</a></li>
+<li><a class="reference internal" href="#id2">基本的な挙動説明</a></li>
+<li><a class="reference internal" href="#id3">設定可能なオプション</a></li>
+<li><a class="reference internal" href="#id4">利用時における注意事項</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">sphinxcontrib-budoux</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>sphinxcontrib-budoux</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sphinxcontrib-budoux">
+<h1 style="word-break: keep-all; overflow-wrap: break-word;">sphinxcontrib-budoux<wbr/><a class="headerlink" href="#sphinxcontrib-budoux" title="このヘッドラインへのパーマリンク"></a></h1>
+<section id="id1">
+<h2 style="word-break: keep-all; overflow-wrap: break-word;">概要<wbr/><a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク"></a></h2>
+<p style="word-break: keep-all; overflow-wrap: break-word;"><code class="docutils literal notranslate"><span class="pre">sphinxcontrib-budoux</span></code> は、<wbr/>Sphinxプロジェクトから<wbr/>HTMLを<wbr/>生成する<wbr/>際に、<wbr/>違和感なく<wbr/>改行をを<wbr/>差し込めるようにするSphinx拡張です。<wbr/></p>
+</section>
+<section id="id2">
+<h2 style="word-break: keep-all; overflow-wrap: break-word;">基本的な<wbr/>挙動説明<wbr/><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク"></a></h2>
+<div class="admonition note">
+<p class="admonition-title" style="word-break: keep-all; overflow-wrap: break-word;">注釈<wbr/></p>
+<p style="word-break: keep-all; overflow-wrap: break-word;">細かい<wbr/>設定を<wbr/>しない<wbr/>ケースでの<wbr/>挙動です<wbr/></p>
+</div>
+<p style="word-break: keep-all; overflow-wrap: break-word;">Sphinxでの<wbr/>HTML生成時に<wbr/>処理を<wbr/>挟み込み、<wbr/>設定で<wbr/>指定されている<wbr/>タグに<wbr/>対して、<wbr/> 以下の<wbr/>処理を<wbr/>行っています。<wbr/></p>
+<ol class="arabic simple">
+<li><p style="word-break: keep-all; overflow-wrap: break-word;">子要素の<wbr/>分割<wbr/></p></li>
+<li><p style="word-break: keep-all; overflow-wrap: break-word;">子要素のうちテキストの<wbr/>要素に<wbr/>対して、<wbr/>BudouXに<wbr/>よる<wbr/>文字列分割を<wbr/>実施<wbr/></p></li>
+<li><p style="word-break: keep-all; overflow-wrap: break-word;">分割された<wbr/>文字列を<wbr/> <wbr/><code class="docutils literal notranslate"><span class="pre">wbr</span></code> タグが<wbr/>間に<wbr/>置かれるように<wbr/>再構成<wbr/></p></li>
+<li><p style="word-break: keep-all; overflow-wrap: break-word;">上記で<wbr/>再構成された<wbr/>子要素群に<wbr/>上書き<wbr/></p></li>
+<li><p style="word-break: keep-all; overflow-wrap: break-word;">対象要素に<wbr/> <wbr/><code class="docutils literal notranslate"><span class="pre">style</span></code> 属性で<wbr/> <wbr/><code class="docutils literal notranslate"><span class="pre">wbr</span></code> タグに<wbr/>対する<wbr/>振る<wbr/>舞いを<wbr/>指定<wbr/></p></li>
+</ol>
+</section>
+<section id="id3">
+<h2 style="word-break: keep-all; overflow-wrap: break-word;">設定可能な<wbr/>オプション<wbr/><a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク"></a></h2>
+<p style="word-break: keep-all; overflow-wrap: break-word;">これらは、<wbr/>いずれも<wbr/> <wbr/><code class="docutils literal notranslate"><span class="pre">conf.py</span></code> に<wbr/>指定する<wbr/>ことで<wbr/>動作挙動を<wbr/>変更する<wbr/>ことが<wbr/>出来ます。<wbr/></p>
+<dl>
+<dt>budoux_targets</dt><dd><p style="word-break: keep-all; overflow-wrap: break-word;"><code class="docutils literal notranslate"><span class="pre">sphinxcontrib-budoux</span></code> に<wbr/>よる<wbr/>処理対象と<wbr/>したい<wbr/>タグ名の<wbr/>一覧。<wbr/>デフォルトでは<wbr/> <wbr/><code class="docutils literal notranslate"><span class="pre">["h1"]</span></code> (ページタイトル部のみ)。<wbr/></p>
+<p style="word-break: keep-all; overflow-wrap: break-word;">他の<wbr/>要素などにも<wbr/>適用したい<wbr/>場合は、<wbr/>ここで<wbr/>複数の<wbr/>要素を<wbr/>指定する<wbr/>ことが<wbr/>可能です。<wbr/>（例： <wbr/><code class="docutils literal notranslate"><span class="pre">["h1",</span> <span class="pre">"h2",</span> <span class="pre">"p"]</span></code> ）<wbr/></p>
+</dd>
+<dt>budoux_split_tag</dt><dd><p style="word-break: keep-all; overflow-wrap: break-word;">文字列分割時に<wbr/>差し込みたい<wbr/>要素名。<wbr/></p>
+<p style="word-break: keep-all; overflow-wrap: break-word;">例えば、<wbr/>「画面状態に<wbr/>関わらず<wbr/>何が<wbr/>あろうと<wbr/>改行したい」と<wbr/>いった<wbr/>場合は<wbr/> <wbr/><code class="docutils literal notranslate"><span class="pre">br</span></code> を<wbr/>指定する<wbr/>ことで<wbr/>実現できます。<wbr/></p>
+</dd>
+<dt>budoux_split_style</dt><dd><p style="word-break: keep-all; overflow-wrap: break-word;">上記 <wbr/><code class="docutils literal notranslate"><span class="pre">budoux_targets</span></code> で<wbr/>検出した<wbr/>タグに<wbr/>対して<wbr/>割り当てられる<wbr/> <wbr/><code class="docutils literal notranslate"><span class="pre">style</span></code> 属性の<wbr/>内容。<wbr/></p>
+<p style="word-break: keep-all; overflow-wrap: break-word;">標準では<wbr/>適切な<wbr/>タイミングで<wbr/>改行が<wbr/>入るような<wbr/>設定を<wbr/>指定しています。<wbr/></p>
+</dd>
+</dl>
+</section>
+<section id="id4">
+<h2 style="word-break: keep-all; overflow-wrap: break-word;">利用時に<wbr/>おける<wbr/>注意事項<wbr/><a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク"></a></h2>
+<p style="word-break: keep-all; overflow-wrap: break-word;">「ページ内で<wbr/>要素を<wbr/>探索して<wbr/>処理」<wbr/>「対象要素全てに<wbr/>対して <wbr/><code class="docutils literal notranslate"><span class="pre">style</span></code> 属性を<wbr/>付与 」と<wbr/>いう<wbr/>シンプルな<wbr/>実装を<wbr/>している<wbr/>関係上、<wbr/>
+<wbr/><code class="docutils literal notranslate"><span class="pre">budoux_targets</span></code> の<wbr/>指定内容に<wbr/>よっては<wbr/>パフォーマンス劣化が<wbr/>起こる<wbr/>可能性が<wbr/>あります。<wbr/></p>
+<ul class="simple">
+<li><p style="word-break: keep-all; overflow-wrap: break-word;">探索数増大に<wbr/>よる<wbr/>処理時間増加<wbr/></p></li>
+<li><p style="word-break: keep-all; overflow-wrap: break-word;"><code class="docutils literal notranslate"><span class="pre">style</span></code> 属性追加に<wbr/>よる<wbr/>コンテンツサイズ増加<wbr/></p></li>
+</ul>
+<p style="word-break: keep-all; overflow-wrap: break-word;">また、<wbr/>以下の<wbr/>理由に<wbr/>より、<wbr/>ブラウザが<wbr/>「実際に<wbr/>どの<wbr/>タイミングで<wbr/>改行するか」の<wbr/>正確な<wbr/>コントロールは<wbr/>出来ません。<wbr/></p>
+<ul class="simple">
+<li><p style="word-break: keep-all; overflow-wrap: break-word;">BudouXで<wbr/>分割した<wbr/>全てに<wbr/>タグを<wbr/>差し込んでいる<wbr/>（この<wbr/>調整を<wbr/>行う<wbr/>予定が<wbr/>ない）<wbr/></p></li>
+<li><p style="word-break: keep-all; overflow-wrap: break-word;">対象と<wbr/>なった<wbr/>全要素に<wbr/>対して、<wbr/>同じ <wbr/><code class="docutils literal notranslate"><span class="pre">style</span></code> 属性を<wbr/>適用している<wbr/></p></li>
+<li><p style="word-break: keep-all; overflow-wrap: break-word;"><code class="docutils literal notranslate"><span class="pre">style</span></code> 属性の<wbr/>他に<wbr/>改行タイミングを<wbr/>決定する<wbr/>要素が<wbr/>存在する<wbr/>可能性が<wbr/>高い<wbr/></p></li>
+</ul>
+<p style="word-break: keep-all; overflow-wrap: break-word;">最後に、<wbr/>あくまで<wbr/>「Sphinxが<wbr/>生成する<wbr/>HTML」に<wbr/>対して<wbr/>処理を<wbr/>実行する<wbr/>ため、<wbr/>直感に<wbr/>反する<wbr/>動きを<wbr/>する<wbr/>可能性が<wbr/>あります。<wbr/></p>
+<p style="word-break: keep-all; overflow-wrap: break-word;">具体的には、<wbr/>リストで<wbr/>記述した<wbr/>ソースは<wbr/>HTMLと<wbr/>しては<wbr/> <wbr/><code class="docutils literal notranslate"><span class="pre">ol</span> <span class="pre">&gt;</span> <span class="pre">li</span> <span class="pre">&gt;</span> <span class="pre">p</span> <span class="pre">&gt;</span> <span class="pre">(コンテンツ)</span></code> となっています。<wbr/>
+その<wbr/>ため、<wbr/> <wbr/><code class="docutils literal notranslate"><span class="pre">budoux_targets</span></code> 内で<wbr/> <wbr/><code class="docutils literal notranslate"><span class="pre">li</span></code> の<wbr/>指定を<wbr/>しても<wbr/>動作せず、<wbr/> <wbr/><code class="docutils literal notranslate"><span class="pre">p</span></code> の<wbr/>指定が<wbr/>必要となる<wbr/>可能性が<wbr/>あります。<wbr/>（ただし<wbr/>未確認）<wbr/></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Kazuya Takei.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
