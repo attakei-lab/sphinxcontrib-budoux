@@ -28,6 +28,7 @@ def test_multiple_targets(app: SphinxTestApp, status: StringIO, warning: StringI
     soup = BeautifulSoup(out_html.read_text(), "html.parser")
     assert len(list(soup.h1.children)) > 1
     assert len(list(soup.h2.children)) > 1
+    assert len(list(soup.find_all("h2")[1].children)) > 1
 
 
 @pytest.mark.sphinx("html", confoverrides={"budoux_split_tag": "br"})
