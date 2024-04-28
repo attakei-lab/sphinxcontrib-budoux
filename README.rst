@@ -62,4 +62,4 @@ If you set ``p``, ``li`` and others into `budoux_targets``, this may not work co
 Example
 =======
 
-See `doc <doc/>`_ (written by Japanese).
+See `doc <https://attakei-lab.github.io/sphinxcontrib-budoux/>`__ (written by Japanese).
